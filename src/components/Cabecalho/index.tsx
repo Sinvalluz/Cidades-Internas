@@ -2,9 +2,9 @@ import Navegacao from '../Navegacao';
 
 export default function Cabecalho() {
 	return (
-		<header className='bg-white py-5 px-11 flex justify-between items-center flex-wrap'>
+		<header className='bg-white sm:px-11 py-5 px-4 flex sm:justify-between sm:flex-row justify-center flex-col items-center overflow-hidden'>
 			<div>
-				<h1 className='text-2xl'>Cidades Internas</h1>
+				<h1 className='text-2xl text-center'>Cidades Internas | Leptospirose</h1>
 			</div>
 			<Navegacao />
 		</header>
