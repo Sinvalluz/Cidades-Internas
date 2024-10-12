@@ -8,7 +8,11 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
-			colors: {},
+			colors: {
+				navigationBtns: '#8498ae',
+				background: '#e1e6f7',
+				title: '#193148',
+			},
 		},
 	},
 	plugins: [],
