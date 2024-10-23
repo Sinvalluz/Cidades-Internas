@@ -11,7 +11,7 @@ export default function Duvidas() {
 				detalhadas sobre termos e informações que podem ajudar a esclarecer todas as suas questões.
 			</p>
 			<Link href={'/sobre'}>
-				<Button>Sobre</Button>
+				<Button className='bg-blue-600'>Sobre</Button>
 			</Link>
 		</div>
 	);

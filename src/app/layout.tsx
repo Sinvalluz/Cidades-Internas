@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 import './globals.css';
+import ReactQueryProvider from '@/provider/QueryClient';
+import { LeptoProvider } from '@/contexts/LeptospiroseDados';
 
 const poppins = Poppins({
 	subsets: ['latin'],
@@ -20,7 +22,11 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='pt-br' className={poppins.className}>
-			<body>{children}</body>
+			<ReactQueryProvider>
+				<LeptoProvider>
+					<body>{children}</body>
+				</LeptoProvider>
+			</ReactQueryProvider>
 		</html>
 	);
 }
