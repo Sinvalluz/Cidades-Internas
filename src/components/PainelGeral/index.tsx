@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import CardCasos from './CardCasos';
 import Duvidas from './Duvidas';
 import { useLepto } from '@/contexts/LeptospiroseDados';
-import { Feature } from '@/types/leptospirose';
+import { FeatureLepto } from '@/types/leptospirose';
 
 export default function PainelGeral() {
 	const { data } = useLepto();
@@ -15,10 +15,10 @@ export default function PainelGeral() {
 	useEffect(() => {
 		function getCasos2018() {
 			if (!data) return;
-			const totalCasos2018 = data.features.reduce((sum: number, feature: Feature) => {
+			const totalCasos2018 = data.features.reduce((sum: number, feature: FeatureLepto) => {
 				return sum + feature.properties.Lepto_2018;
 			}, 0);
-			const totalCasos2019 = data.features.reduce((sum: number, feature: Feature) => {
+			const totalCasos2019 = data.features.reduce((sum: number, feature: FeatureLepto) => {
 				return sum + feature.properties.Lepto_2019;
 			}, 0);
 			setCasos2018(totalCasos2018);
