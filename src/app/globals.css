@@ -117,3 +117,7 @@ body {
 		@apply bg-background text-foreground;
 	}
 }
+
+.leaflet-interactive:focus {
+	outline: none; /* Remove o contorno de foco */
+}

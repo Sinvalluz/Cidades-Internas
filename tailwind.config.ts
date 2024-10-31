@@ -10,6 +10,12 @@ const config: Config = {
 	theme: {
 		extend: {
 			colors: {
+				fillColorRed: '#ff0000',
+				fillColorOrange: '#ff6600',
+				fillColorYellow: '#FFFF99',
+				fillColorGreen: '#00ff2a',
+				fillColorBlue: '#00BFFF',
+				fillColorGray: 'gray',
 				navigationBtns: '#8498ae',
 				bgBody: '#dce0ff',
 				background: 'hsl(var(--background))',
@@ -62,6 +68,12 @@ const config: Config = {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)',
+			},
+			height: {
+				containerGraficoMapa: '700px',
+			},
+			minHeight: {
+				containerGraficoMapa: '700px',
 			},
 		},
 	},

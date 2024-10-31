@@ -1,8 +1,11 @@
+import { GeoJsonObject } from 'geojson';
+
 export type LeptoContextProps = {
 	data: FeatureCollection | undefined;
+	isLoading: boolean;
 };
 
-export type Feature = {
+export type FeatureLepto = {
 	type: string;
 	properties: {
 		NomeBairro: string;
@@ -18,7 +21,7 @@ export type Feature = {
 };
 
 export type FeatureCollection = {
-	type: string;
+	type: 'FeatureCollection';
 	name: string;
 	crs: {
 		type: string;
@@ -26,5 +29,5 @@ export type FeatureCollection = {
 			name: string;
 		};
 	};
-	features: Feature[];
+	features: FeatureLepto[];
 };
