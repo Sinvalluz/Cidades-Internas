@@ -29,3 +29,9 @@ export interface FeatureCollection {
 	};
 	features: FeatureLepto[];
 }
+
+export interface BairrosECasos {
+	NomeBairro: string;
+	Lepto_2018: number;
+	Lepto_2019: number;
+}

@@ -97,7 +97,7 @@ export default function GraficoMapa() {
 	return (
 		data && (
 			<div className='flex-grow basis-96 bg-white relative z-0 h-containerGraficoMapa outline-none rounded-2xl'>
-				<h2 className='absolute z-10 pt-2 text-black text-2xl text-center font-bold w-full bg-white h-28 rounded'>
+				<h2 className='absolute z-10 pt-2 text-black text-2xl text-center font-bold w-full bg-white h-28 rounded-t-2xl'>
 					Mapa de Leptospirose em Salvador 2018 e 2019
 				</h2>
 				<MapContainer
