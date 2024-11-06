@@ -6,9 +6,9 @@ const GraficoMapa = dynamic(() => import('./GraficoMapa'), {
 
 export default function Graficos() {
 	return (
-		<div className='flex items-stretch gap-5 mb-10 flex-wrap min-h-containerGraficoMapa'>
+		<section className='flex items-stretch gap-5 mb-10 flex-wrap min-h-containerGraficoMapa max-w-full box-border'>
 			<GraficoBarras />
 			<GraficoMapa />
-		</div>
+		</section>
 	);
 }
