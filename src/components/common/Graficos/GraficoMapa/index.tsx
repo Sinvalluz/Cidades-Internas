@@ -95,49 +95,49 @@ export default function GraficoMapa() {
 	];
 
 	return (
-		data && (
-			<div className='flex-grow basis-96 bg-white relative z-0 h-containerGraficoMapa outline-none rounded-2xl'>
-				<h2 className='absolute z-10 pt-2 text-black text-2xl text-center font-bold w-full bg-white h-28 rounded-t-2xl'>
-					Mapa de Leptospirose em Salvador 2018 e 2019
-				</h2>
-				<MapContainer
-					className='w-full h-full z-0 rounded-2xl'
-					maxZoom={13}
-					zoom={11}
-					minZoom={11}
-					scrollWheelZoom={true}
-					keyboard={false}
-					center={centroDoMapa}
-					maxBoundsViscosity={1.0} // Controla a suavidade do limite
-					maxBounds={bounds}
-					zoomControl={false} // Botão para dar zoom
-					doubleClickZoom={false} // double click zoom
-					dragging={true} // mexer o mapa
-					touchZoom={true} // zoom de celular
-				>
-					<TileLayer
-						attribution='Índice de leptospirose em Salvador'
-						url='http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'
-						opacity={0}
-					/>
+		<div className='flex-grow basis-96 bg-white relative z-0 h-containerGraficoMapa outline-none rounded-2xl'>
+			<h2 className='absolute z-10 pt-2 text-black text-2xl text-center font-bold w-full bg-white h-28 rounded-t-2xl'>
+				Mapa de Leptospirose em Salvador 2018 e 2019
+			</h2>
+			<MapContainer
+				className='w-full h-full z-0 rounded-2xl'
+				maxZoom={13}
+				zoom={11}
+				minZoom={11}
+				scrollWheelZoom={true}
+				keyboard={false}
+				center={centroDoMapa}
+				maxBoundsViscosity={1.0} // Controla a suavidade do limite
+				maxBounds={bounds}
+				zoomControl={false} // Botão para dar zoom
+				doubleClickZoom={false} // double click zoom
+				dragging={true} // mexer o mapa
+				touchZoom={true} // zoom de celular
+			>
+				<TileLayer
+					attribution='Índice de leptospirose em Salvador'
+					url='http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png'
+					opacity={0}
+				/>
+				{data && (
 					<GeoJSON
 						data={data as GeoJsonObject}
 						style={style as StyleFunction<any>}
 						onEachFeature={onEachFeature}
 					/>
-				</MapContainer>
-				<div className='absolute sm:right-6 sm:bottom-6 right-3 bottom-3 bg-white sm:p-4 p-2 rounded-xl flex flex-col gap-1 z-10'>
-					<h4>Números de casos</h4>
-					{descriçao.map((item) => {
-						return (
-							<span key={item.id} className='flex items-center gap-2'>
-								<div className={`w-4 h-4 bg-${item.color} rounded-full`}></div>
-								<p>{item.range}</p>
-							</span>
-						);
-					})}
-				</div>
+				)}
+			</MapContainer>
+			<div className='absolute sm:right-6 sm:bottom-6 right-3 bottom-3 bg-white sm:p-4 p-2 rounded-xl flex flex-col gap-1 z-10'>
+				<h4>Números de casos</h4>
+				{descriçao.map((item) => {
+					return (
+						<span key={item.id} className='flex items-center gap-2'>
+							<div className={`w-4 h-4 bg-${item.color} rounded-full`}></div>
+							<p>{item.range}</p>
+						</span>
+					);
+				})}
 			</div>
-		)
+		</div>
 	);
 }
