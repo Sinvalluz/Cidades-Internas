@@ -64,32 +64,32 @@ export default function GraficoMapa() {
 	const descriçao = [
 		{
 			id: 0,
-			color: 'fillColorRed',
+			color: 'bg-fillColorRed',
 			range: 'entre 21 a 25',
 		},
 		{
 			id: 1,
-			color: 'fillColorOrange',
+			color: 'bg-fillColorOrange',
 			range: 'entre 16 a 21',
 		},
 		{
 			id: 2,
-			color: 'fillColorYellow',
+			color: 'bg-fillColorYellow',
 			range: 'entre 11 a 16',
 		},
 		{
 			id: 3,
-			color: 'fillColorGreen',
+			color: 'bg-fillColorGreen',
 			range: 'entre 6 a 11',
 		},
 		{
 			id: 4,
-			color: 'fillColorBlue',
+			color: 'bg-fillColorBlue',
 			range: 'entre 1 a 6',
 		},
 		{
 			id: 5,
-			color: 'fillColorGray',
+			color: 'bg-fillColorGray',
 			range: 'Nenhum caso',
 		},
 	];
@@ -132,7 +132,7 @@ export default function GraficoMapa() {
 				{descriçao.map((item) => {
 					return (
 						<span key={item.id} className='flex items-center gap-2'>
-							<div className={`w-4 h-4 bg-${item.color} rounded-full`}></div>
+							<div className={`w-4 h-4 ${item.color} rounded-full`}></div>
 							<p>{item.range}</p>
 						</span>
 					);
