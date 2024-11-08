@@ -2,7 +2,7 @@ import { GitHubLogoIcon } from '@radix-ui/react-icons';
 
 export default function Rodape() {
 	return (
-		<footer className='w-full bg-white py-5 px-4'>
+		<footer className='w-full bg-white py-5 px-4 min-h-[300px]'>
 			<div className='flex gap-3 flex-wrap justify-center overflow-x-hidden'>
 				<div className='flex-1 box-border basis-40'>
 					<h4 className='font-bold mb-4'>Aviso legal:</h4>
