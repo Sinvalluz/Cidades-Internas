@@ -1,3 +1,4 @@
+import { alunos } from '@/app/constants/alunos';
 import { GitHubLogoIcon } from '@radix-ui/react-icons';
 
 export default function Rodape() {
@@ -20,17 +21,17 @@ export default function Rodape() {
 						de Software) (Projeto de Extensão)
 					</p>
 				</div>
-				<div className='flex-1  box-border basis-40'>
+				<div className='flex-1 box-border basis-40'>
 					<h4 className='font-bold mb-4'>Links úteis:</h4>
 					<ul className='text-sm flex flex-col gap-2'>
-						<li>
+						<li className='h-5'>
 							<a
 								href='https://cidades-internas.vercel.app/api/getLeptoData'
 								className='transition-all hover:text-blue-700 hover:text-base hover:font-semibold'>
 								Api
 							</a>
 						</li>
-						<li>
+						<li className='h-5'>
 							<a
 								href='https://github.com/Sinvalluz/Cidades-Internas'
 								target='_black'
@@ -38,7 +39,7 @@ export default function Rodape() {
 								Repositório
 							</a>
 						</li>
-						<li>
+						<li className='h-5'>
 							<a
 								href='https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/l/leptospirose'
 								target='_black'
@@ -51,60 +52,17 @@ export default function Rodape() {
 				<div className='flex-1  box-border basis-40'>
 					<h4 className='font-bold mb-4'>Contato:</h4>
 					<ul className='text-sm flex flex-col gap-2'>
-						<li className='flex gap-1 items-center'>
-							<GitHubLogoIcon />
-							<a
-								href='https://github.com/Sinvalluz'
-								target='_black'
-								className='transition-all hover:text-blue-700 hover:text-base hover:font-semibold'>
-								Sinval Luz Souza Filho
-							</a>
-						</li>
-						<li className='flex gap-1 items-center'>
-							<GitHubLogoIcon />
-							<a
-								href='https://github.com/guibaa1'
-								target='_black'
-								className='transition-all hover:text-blue-700 hover:text-base hover:font-semibold'>
-								Guilherme Costa Santos
-							</a>
-						</li>
-						<li className='flex gap-1 items-center'>
-							<GitHubLogoIcon />
-							<a
-								href='https://github.com/thiagosampaiog'
-								target='_black'
-								className='transition-all hover:text-blue-700 hover:text-base hover:font-semibold'>
-								Thiago Galdino Sampaio
-							</a>
-						</li>
-						<li className='flex gap-1 items-center'>
-							<GitHubLogoIcon />
-							<a
-								href='https://github.com/Sinvalluz'
-								target='_black'
-								className='transition-all hover:text-blue-700 hover:text-base hover:font-semibold'>
-								Sinval Luz
-							</a>
-						</li>
-						<li className='flex gap-1 items-center'>
-							<GitHubLogoIcon />
-							<a
-								href='https://github.com/Sinvalluz'
-								target='_black'
-								className='transition-all hover:text-blue-700 hover:text-base hover:font-semibold'>
-								Sinval Luz
-							</a>
-						</li>
-						<li className='flex gap-1 items-center'>
-							<GitHubLogoIcon />
-							<a
-								href='https://github.com/Sinvalluz'
-								target='_black'
-								className='transition-all hover:text-blue-700 hover:text-base hover:font-semibold'>
-								Sinval Luz
-							</a>
-						</li>
+						{alunos.map((aluno) => (
+							<li key={aluno.id} className='h-5'>
+								<a
+									href={aluno.gitHub}
+									target='_black'
+									className='transition-all flex gap-1 items-center hover:text-blue-700 hover:text-base hover:font-semibold'>
+									<GitHubLogoIcon />
+									{aluno.nome}
+								</a>
+							</li>
+						))}
 					</ul>
 				</div>
 				<div className='flex-1  box-border basis-40'>
