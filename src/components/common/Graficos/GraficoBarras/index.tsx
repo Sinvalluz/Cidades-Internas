@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { useLepto } from '@/contexts/LeptoContext';
@@ -13,14 +14,13 @@ import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts';
 export default function GraficoBarras() {
 	const { data } = useLepto();
 	const [dadosBarras, setDadosBarras] = useState<BairrosECasos[]>([] as BairrosECasos[]);
-	const [inputValue, setInputValue] = useState('');
+	const [nomeBairros, setNomeBairros] = useState<string[]>();
+	const [bairroSelecionado, setBairroSelecionado] = useState('');
 	const [largura, setLargura] = useState<number | string>(30000);
 	const [dadosFiltrados, setDadosFiltrados] = useState<BairrosECasos[]>([] as BairrosECasos[]);
 
-	function filtrarGrafico() {
-		if (!data) return;
-		if (!dadosBarras) return;
-		if (inputValue == '') return;
+	const filtrarGrafico = () => {
+		if (!data || bairroSelecionado == '' || !dadosBarras) return;
 		const novosDadosFiltrados = data.features
 			.map((feature) => {
 				return {
@@ -30,19 +30,19 @@ export default function GraficoBarras() {
 				};
 			})
 			.sort((a, b) => a.NomeBairro.localeCompare(b.NomeBairro))
-			.filter((item) => item.NomeBairro.toLowerCase().includes(inputValue.toLowerCase()));
+			.filter((item) => item.NomeBairro === bairroSelecionado);
 		setDadosFiltrados((prevItems) => [
 			...prevItems,
 			...novosDadosFiltrados.filter(
 				(item) => !prevItems.some((prevItem) => prevItem.NomeBairro === item.NomeBairro),
 			),
 		]);
-
-		setInputValue('');
+		setDadosBarras([...dadosFiltrados, ...novosDadosFiltrados]);
+		setBairroSelecionado('');
 		setLargura('100%');
-	}
+	};
 
-	function manipulaData() {
+	const manipulaData = () => {
 		if (!data) return;
 		const dadosFiltradosNaApi = data.features
 			.map((feature) => {
@@ -54,21 +54,28 @@ export default function GraficoBarras() {
 			})
 			.sort((a, b) => a.NomeBairro.localeCompare(b.NomeBairro));
 		setDadosBarras(dadosFiltradosNaApi);
-	}
+	};
 
-	function limparGrafico() {
+	const buscaNomesBairros = () => {
+		if (!data) return;
+		const nomesBairros = data.features.map((feature) => {
+			const nomeBairro = feature.properties.NomeBairro;
+			return nomeBairro;
+		});
+		setNomeBairros(nomesBairros);
+	};
+
+	const limparGrafico = () => {
 		manipulaData();
 		setLargura(30000);
-		setInputValue('');
-	}
+		setDadosFiltrados([]);
+		setBairroSelecionado('');
+	};
 
 	useEffect(() => {
 		manipulaData();
+		buscaNomesBairros();
 	}, [data]);
-
-	useEffect(() => {
-		setDadosBarras(dadosFiltrados);
-	}, [dadosFiltrados]);
 
 	const chartConfig = {
 		desktop: {
@@ -83,19 +90,25 @@ export default function GraficoBarras() {
 	return (
 		<div className='bg-white rounded-2xl sm:p-6 p-2 box-border w-full'>
 			<div className='flex gap-3 pt-3 flex-wrap'>
-				<Input
-					type='text'
-					placeholder='Digite o nome do bairro'
-					className='flex-grow basis-40'
-					onChange={(e) => setInputValue(e.target.value)}
-					value={inputValue}
-				/>
+				<Select value={bairroSelecionado} onValueChange={(value) => setBairroSelecionado(value)}>
+					<SelectTrigger className='flex-grow basis-40'>
+						<SelectValue placeholder='Selecione o bairro para filtragem' />
+					</SelectTrigger>
+					<SelectContent>
+						{nomeBairros &&
+							nomeBairros.sort().map((bairro) => (
+								<SelectItem key={bairro} value={bairro}>
+									{bairro}
+								</SelectItem>
+							))}
+					</SelectContent>
+				</Select>
 				<Button className='sm:flex-grow-0 flex-grow' onClick={filtrarGrafico}>
 					Filtrar
 				</Button>
 			</div>
 			<div className='h-28 mt-3'>
-				<Button className='bg-transparent text-black lg:w-auto w-full' onClick={() => limparGrafico()}>
+				<Button className='bg-transparent text-black lg:w-auto w-full' onClick={limparGrafico}>
 					Limpar filtros
 				</Button>
 			</div>
