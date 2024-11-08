@@ -88,7 +88,7 @@ export default function GraficoBarras() {
 		},
 	} satisfies ChartConfig;
 	return (
-		<div className='bg-white rounded-2xl sm:p-6 p-2 box-border w-full'>
+		<div className='bg-white rounded-2xl sm:p-6 p-2 box-border w-full overflow-x-hidden'>
 			<div className='flex gap-3 pt-3 flex-wrap'>
 				<Select value={bairroSelecionado} onValueChange={(value) => setBairroSelecionado(value)}>
 					<SelectTrigger className='flex-grow basis-40'>
