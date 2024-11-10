@@ -53,7 +53,7 @@ export default function Rodape() {
 					<h4 className='font-bold mb-4'>Contato:</h4>
 					<ul className='text-sm flex flex-col gap-2'>
 						{alunos.map((aluno) => (
-							<li key={aluno.id} className='h-5'>
+							<li key={aluno.id} className='min-h-5'>
 								<a
 									href={aluno.gitHub}
 									target='_black'
