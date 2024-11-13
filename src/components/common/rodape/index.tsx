@@ -52,7 +52,7 @@ export default function Rodape() {
 				<div className='flex-1  box-border basis-40'>
 					<h4 className='font-bold mb-4'>Contato:</h4>
 					<ul className='text-sm flex flex-col gap-2'>
-						{alunos.filter((aluno) => aluno.gitHub == true).map((aluno) => (
+						{alunos.filter((aluno) => aluno.gitHub).map((aluno) => (
 							<li key={aluno.id} className='min-h-5'>
 								<a
 									href={aluno.gitHub}
