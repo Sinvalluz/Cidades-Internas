@@ -32,4 +32,20 @@ export const alunos: AlunosTypes[] = [
 		id: 5,
 		nome: 'Mauricio Gabriel Leal',
 	},
+	{
+		id: 6,
+		nome: 'Cauê Silva De Lima',
+	},
+	{
+		id: 7,
+		nome: 'Gabriel Pastore Menezes',
+	},
+	{
+		id: 8,
+		nome: 'Ryan Joaquin Berto Silva De Matos',
+	},
+	{
+		id: 9,
+		nome: 'Lucas Santana Dos Santos',
+	},
 ];
