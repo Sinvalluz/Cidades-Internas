@@ -70,7 +70,7 @@ export default function GraficoMapa() {
 		{
 			id: 1,
 			color: 'bg-fillColorOrange',
-			range: 'entre 16 a 21',
+			range: 'entre 16 a 20',
 		},
 		{
 			id: 2,
@@ -80,12 +80,12 @@ export default function GraficoMapa() {
 		{
 			id: 3,
 			color: 'bg-fillColorGreen',
-			range: 'entre 6 a 11',
+			range: 'entre 6 a 10',
 		},
 		{
 			id: 4,
 			color: 'bg-fillColorBlue',
-			range: 'entre 1 a 6',
+			range: 'entre 1 a 5',
 		},
 		{
 			id: 5,
