@@ -30,9 +30,9 @@ export default function MainSobre() {
 					geográfica dos índices da doença.
 				</p>
 
-				<h2 className='text-xl font-semibold mb-3 text-blue-600'>Dedicatória</h2>
+				<h2 className='text-xl font-semibold mb-3 text-blue-600'>Créditos</h2>
 				<div className='text-gray-700'>
-					Dedicamos este projeto a todos os alunos que participaram deste trabalho colaborativo:
+					Agradecemos a todos que contribuíram para a realização deste projeto:
 					<ul className='list-disc ml-8 mb-4'>
 						{alunos.map((aluno) => (
 							<li key={aluno.id}>{aluno.nome}</li>
