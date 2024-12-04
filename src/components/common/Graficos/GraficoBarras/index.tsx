@@ -72,6 +72,14 @@ export default function GraficoBarras() {
 		setBairroSelecionado('');
 	};
 
+	const ordenarPorCasos = () => {
+		const dadosOrdenados = [...dadosBarras].sort(
+			(a, b) => b.Lepto_2018 + b.Lepto_2019 - (a.Lepto_2018 + a.Lepto_2019),
+		);
+		setDadosBarras(dadosOrdenados);
+		setBairroSelecionado('');
+	};
+
 	useEffect(() => {
 		manipulaData();
 		buscaNomesBairros();
@@ -105,6 +113,9 @@ export default function GraficoBarras() {
 				</Select>
 				<Button className='sm:flex-grow-0 flex-grow' onClick={filtrarGrafico}>
 					Filtrar
+				</Button>
+				<Button className='sm:flex-grow-0 flex-grow' onClick={ordenarPorCasos}>
+					Ordenar por casos
 				</Button>
 			</div>
 			<div className='h-28 mt-3'>
